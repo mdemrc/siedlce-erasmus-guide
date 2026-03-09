@@ -26,6 +26,11 @@ A mobile application built for Erasmus students at Siedlce University of Natural
 
 Setup instructions will be added as the project progresses.
 
+## Team
+
+- **Mehmet Demirci** -- Erasmus Student, UPH Siedlce
+- **Süleyman Efe Metik** -- Erasmus Student, UPH Siedlce
+
 ## License
 
 This project is developed as a university assignment for the Mobile Applications course at UPH Siedlce.

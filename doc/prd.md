@@ -112,6 +112,11 @@ Erasmus students arriving in Siedlce face common challenges:
 
 ## Team
 
+| Role | Name |
+|---|---|
+| Developer | Mehmet Demirci (Erasmus Student) |
+| Developer | Süleyman Efe Metik (Erasmus Student) |
+
 - Mobile Development: Kotlin (Android)
 - Backend Development: Java (Spring Boot)
 - Project submitted for: Mobile Applications course, UPH Siedlce
