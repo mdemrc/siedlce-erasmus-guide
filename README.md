@@ -33,4 +33,4 @@ Setup instructions will be added as the project progresses.
 
 ## License
 
-This project is developed as a university assignment for the Mobile Applications course at UPH Siedlce.
+This project is developed as a university assignment for the Mobile Applications course at UPH Siedlce..
