@@ -2,7 +2,34 @@
 
 ## Overview
 
-This document describes the technology choices for the Siedlce Erasmus Guide mobile application. The stack is split into two main layers: a native Android frontend built with Kotlin and a backend API built with Java and Spring Boot.
+This document describes the technology choices for the Siedlce Erasmus Guide mobile application. The stack follows a simplified, single-language approach: a native Android app built entirely in Kotlin, with data served from static JSON files bundled in the APK and optionally synced via Firebase.
+
+The previous Java/Spring Boot/PostgreSQL backend has been removed to reduce complexity, eliminate the language split (Kotlin vs. Java), and remove unnecessary infrastructure overhead (VPS, Docker, database migrations, JWT authentication) for what is essentially static guide content.
+
+---
+
+## Architecture
+
+```
+┌─────────────────────────────────────┐
+│         Android App (Kotlin)        │
+│                                     │
+│  ┌───────────┐   ┌───────────────┐  │
+│  │ Map Screen│   │Checklist Screen│  │
+│  └─────┬─────┘   └───────┬───────┘  │
+│        │                  │          │
+│  ┌─────┴──────────────────┴───────┐  │
+│  │     Repository Layer           │  │
+│  └─────┬──────────────────┬───────┘  │
+│        │                  │          │
+│  ┌─────┴─────┐   ┌───────┴───────┐  │
+│  │ Local JSON │   │ Firebase (opt)│  │
+│  │ (assets/) │   │  Firestore    │  │
+│  └───────────┘   └───────────────┘  │
+└─────────────────────────────────────┘
+```
+
+**Data flow:** The app reads POI and checklist data from JSON files in `assets/`. If Firebase is configured, it can pull updated data remotely. No custom backend server is needed.
 
 ---
 
@@ -15,7 +42,6 @@ This document describes the technology choices for the Siedlce Erasmus Guide mob
 | Build System | Gradle (Kotlin DSL) | 8.x |
 | UI Framework | Jetpack Compose | 1.5+ |
 | Navigation | Jetpack Navigation Compose | 2.7+ |
-| Networking | Retrofit + OkHttp | 2.9+ / 4.12+ |
 | JSON Parsing | Kotlinx Serialization | 1.6+ |
 | Image Loading | Coil | 2.5+ |
 | Maps | Google Maps SDK for Android | 18.x |
@@ -28,51 +54,33 @@ This document describes the technology choices for the Siedlce Erasmus Guide mob
 
 - **Jetpack Compose** over XML layouts for modern, declarative UI development
 - **MVVM architecture** for clean separation of concerns and testability
-- **Retrofit** for type-safe HTTP communication with the backend
-- **Room** for offline caching of city guide content
+- **Room** for persisting checklist state and caching POI data locally
 - **Hilt** for compile-time dependency injection with Android lifecycle awareness
-- **Coil** over Glide/Picasso for Kotlin-first image loading with Compose support
+- **Coil** for Kotlin-first image loading with Compose support
+- **Kotlinx Serialization** for parsing bundled JSON data files
 
 ---
 
-## Backend (API Server)
+## Data Layer (Replaces Backend)
 
-| Component | Technology | Version |
+| Component | Technology | Purpose |
 |---|---|---|
-| Language | Java | 17 (LTS) |
-| Framework | Spring Boot | 3.2+ |
-| Build System | Maven | 3.9+ |
-| API Style | RESTful (JSON) | -- |
-| Database | PostgreSQL | 16+ |
-| ORM | Spring Data JPA (Hibernate) | 3.2+ |
-| API Documentation | SpringDoc OpenAPI (Swagger) | 2.3+ |
-| Authentication | Spring Security + JWT | 3.2+ |
-| Validation | Jakarta Bean Validation | 3.0+ |
-| Migration | Flyway | 10+ |
-| Testing | JUnit 5 + Mockito | 5.10+ / 5.8+ |
+| Static Data | JSON files in `assets/` | POI data, checklist items, city info |
+| Remote Sync (optional) | Firebase Firestore | Update POI data without app release |
+| Image Storage (optional) | Firebase Storage | Host POI photos remotely |
+| Analytics (optional) | Firebase Analytics | Basic usage tracking |
 
-### Key Decisions -- Backend
+### Why No Custom Backend
 
-- **Java 17** as the LTS version with modern language features (records, sealed classes, pattern matching)
-- **Spring Boot 3.2+** for production-ready REST API with minimal configuration
-- **PostgreSQL** for reliable relational data storage with spatial query support (PostGIS for map data)
-- **Flyway** for version-controlled database migrations
-- **JWT authentication** for stateless API security suitable for mobile clients
-- **SpringDoc OpenAPI** for automatic API documentation and testing interface
+The previous stack included Java 17, Spring Boot, PostgreSQL, Flyway, JWT, and Docker. This has been removed because:
 
----
+- **No dynamic data:** POI locations and checklist items are static content that rarely changes
+- **No user accounts:** There are no private features requiring authentication, so JWT adds complexity with zero business value
+- **Operational overhead:** Running a VPS with Docker, PostgreSQL, and database migrations is unnecessary for a 2-person student project
+- **Language split:** Maintaining both Kotlin (Android) and Java (backend) doubles the context-switching cost
+- **Static JSON** bundled in the APK provides the same functionality with zero infrastructure
 
-## API Communication
-
-```
-[Android App (Kotlin)] <---> [REST API (JSON over HTTPS)] <---> [Spring Boot Backend (Java)]
-                                                                        |
-                                                                  [PostgreSQL]
-```
-
-- Communication between mobile app and backend uses REST endpoints over HTTPS
-- JSON is the data exchange format
-- JWT tokens handle authentication for protected endpoints
+If remote updates are needed (e.g., adding new POIs without releasing a new APK), Firebase Firestore provides this out of the box with no server to maintain.
 
 ---
 
@@ -80,12 +88,10 @@ This document describes the technology choices for the Siedlce Erasmus Guide mob
 
 | Tool | Purpose |
 |---|---|
-| Android Studio | Android/Kotlin IDE |
-| IntelliJ IDEA | Backend Java IDE |
+| Android Studio | Kotlin/Android IDE |
 | Git + GitHub | Version control and collaboration |
-| Postman | API testing |
-| Docker | Local PostgreSQL and backend containerization |
-| pgAdmin | Database management |
+| Firebase Console | Data management (if Firebase is used) |
+| Google Maps Platform | API key management for Maps SDK |
 
 ---
 
@@ -93,37 +99,33 @@ This document describes the technology choices for the Siedlce Erasmus Guide mob
 
 ```
 siedlce-erasmus-guide/
-├── doc/                    # Project documentation
-│   ├── prd.md              # Product Requirements Document
-│   └── tech_stack.md       # This file
-├── android/                # Kotlin Android application
+├── doc/                        # Project documentation
+│   ├── prd.md                  # Product Requirements Document
+│   └── tech_stack.md           # This file
+├── android/                    # Kotlin Android application
 │   ├── app/
 │   │   ├── src/
 │   │   │   ├── main/
-│   │   │   │   ├── java/   # Kotlin source files
-│   │   │   │   └── res/    # Resources (layouts, strings, drawables)
-│   │   │   └── test/       # Unit tests
+│   │   │   │   ├── java/       # Kotlin source files
+│   │   │   │   ├── res/        # Resources (strings, drawables)
+│   │   │   │   └── assets/     # Bundled JSON data files
+│   │   │   │       ├── pois.json
+│   │   │   │       └── checklist.json
+│   │   │   └── test/           # Unit tests
 │   │   └── build.gradle.kts
 │   ├── build.gradle.kts
 │   └── settings.gradle.kts
-├── backend/                # Java Spring Boot application
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/       # Java source files
-│   │   │   └── resources/  # Application config, migrations
-│   │   └── test/           # Unit and integration tests
-│   └── pom.xml
-├── docs/                   # Internal developer documentation
+├── docs/                       # Internal developer documentation
 ├── .gitignore
 └── README.md
 ```
 
 ---
 
-## Deployment (Planned)
+## Deployment
 
 | Component | Target |
 |---|---|
-| Backend API | Docker container on a VPS or university server |
-| Database | PostgreSQL in Docker |
 | Mobile App | APK distribution (direct install or Google Play internal testing) |
+| Data Updates | Firebase Firestore (optional) or new APK release |
+| Future | PWA version if long-term university adoption is planned |

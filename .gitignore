@@ -20,14 +20,10 @@ android/app/build/
 android/app/release/
 android/local.properties
 
-# Java / Maven
-backend/target/
+# Java / Maven (removed from stack, kept for safety)
 *.class
 *.jar
-*.war
-*.ear
 *.log
-hs_err_pid*
 
 # IDE
 .idea/

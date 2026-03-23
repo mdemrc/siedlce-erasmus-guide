@@ -1,12 +1,12 @@
 # Siedlce Erasmus Guide
 
-A mobile application built for Erasmus students at Siedlce University of Natural Sciences and Humanities (UPH Siedlce). The app introduces the city of Siedlce and provides practical information to help international students settle in.
+A mobile application for Erasmus students at the University in Siedlce (UwS). Provides an interactive map of student-relevant locations and a practical arrival checklist.
 
 ## Tech Stack
 
-- **Mobile:** Kotlin (Android, Jetpack Compose)
-- **Backend:** Java 17 (Spring Boot)
-- **Database:** PostgreSQL
+- **Mobile:** Kotlin (Android, Jetpack Compose, MVVM)
+- **Data:** Static JSON (bundled in APK) + optional Firebase Firestore
+- **Maps:** Google Maps SDK for Android
 
 ## Documentation
 
@@ -18,7 +18,6 @@ A mobile application built for Erasmus students at Siedlce University of Natural
 ```
 ├── doc/          # Project documentation (prd.md, tech_stack.md)
 ├── android/      # Kotlin Android application
-├── backend/      # Java Spring Boot API
 └── docs/         # Internal developer docs
 ```
 
@@ -28,9 +27,9 @@ Setup instructions will be added as the project progresses.
 
 ## Team
 
-- **Mehmet Demirci** -- Erasmus Student, UPH Siedlce
-- **Süleyman Efe Metik** -- Erasmus Student, UPH Siedlce
+- **Mehmet Demirci** -- Erasmus Student, UwS
+- **Süleyman Efe Metik** -- Erasmus Student, UwS
 
 ## License
 
-This project is developed as a university assignment for the Mobile Applications course at UPH Siedlce.
+This project is developed as a university assignment for the Mobile Applications course at UwS (Uniwersytet w Siedlcach).
