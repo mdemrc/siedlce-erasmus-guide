@@ -1,6 +1,6 @@
 # Siedlce Erasmus Guide
 
-A mobile application built for Erasmus students at Siedlce University of Natural Sciences and Humanities (UPH Siedlce). The app introduces the city of Siedlce and provides practical information to help international students settle in.
+A mobile application built for Erasmus students at the University in Siedlce (UwS). The app introduces the city of Siedlce and provides practical information to help international students settle in.
 
 ## Tech Stack
 
@@ -28,9 +28,9 @@ Setup instructions will be added as the project progresses.
 
 ## Team
 
-- **Mehmet Demirci** -- Erasmus Student, UPH Siedlce
-- **Süleyman Efe Metik** -- Erasmus Student, UPH Siedlce
+- **Mehmet Demirci** -- Erasmus Student, UwS (Uniwersytet w Siedlcach)
+- **Süleyman Efe Metik** -- Erasmus Student, UwS (Uniwersytet w Siedlcach)
 
 ## License
 
-This project is developed as a university assignment for the Mobile Applications course at UPH Siedlce..
+This project is developed as a university assignment for the Mobile Applications course at UwS (Uniwersytet w Siedlcach).
