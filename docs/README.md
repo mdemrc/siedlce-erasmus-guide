@@ -4,8 +4,10 @@ This directory contains internal developer documentation for the Siedlce Erasmus
 
 ## Contents
 
-Documentation will be added as modules are implemented. Each module will have its own documentation file explaining its purpose, responsibilities, and how it fits into the system.
+- [Data Schema](data_schema.md) -- JSON schema for POIs and checklist data
+
+Documentation will be added as modules are implemented.
 
 ## Data Format
 
-POI and checklist JSON schema documentation will be added here once the data format is finalized.
+POI and checklist JSON schema documentation is in [data_schema.md](data_schema.md).

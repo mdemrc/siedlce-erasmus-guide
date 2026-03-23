@@ -1,0 +1,121 @@
+[
+  {
+    "id": "accept_letter",
+    "title": "Get your acceptance letter",
+    "description": "Receive the official acceptance letter from UwS International Office via email. Print a copy to bring with you.",
+    "category": "before_arrival",
+    "order": 1
+  },
+  {
+    "id": "ehic_card",
+    "title": "Get your EHIC card",
+    "description": "Apply for a European Health Insurance Card from your home country's health authority. This covers emergency medical care in Poland.",
+    "category": "before_arrival",
+    "order": 2
+  },
+  {
+    "id": "travel_insurance",
+    "title": "Arrange travel insurance",
+    "description": "Get travel/health insurance that covers your entire stay. Some universities require this in addition to EHIC.",
+    "category": "before_arrival",
+    "order": 3
+  },
+  {
+    "id": "book_transport",
+    "title": "Book transport to Siedlce",
+    "description": "Fly to Warsaw Chopin (WAW) or Modlin (WMI) airport. From Warsaw, take a direct PKP train to Siedlce (~1.5 hours). Buy tickets at intercity.pl.",
+    "category": "before_arrival",
+    "order": 4
+  },
+  {
+    "id": "pack_documents",
+    "title": "Pack essential documents",
+    "description": "Passport/ID, acceptance letter, EHIC card, insurance documents, passport photos (4 pcs), Learning Agreement, bank statements.",
+    "category": "before_arrival",
+    "order": 5
+  },
+  {
+    "id": "dormitory_checkin",
+    "title": "Check in to dormitory",
+    "description": "Go to DS5 reception with your passport and acceptance letter. You will get your room key and dormitory rules.",
+    "category": "arrival",
+    "order": 1
+  },
+  {
+    "id": "international_office_visit",
+    "title": "Visit the International Office",
+    "description": "Go to the International Relations Office (Rektorat building) to register your arrival. Bring passport, acceptance letter, and photos.",
+    "category": "arrival",
+    "order": 2
+  },
+  {
+    "id": "student_id",
+    "title": "Get your student ID card",
+    "description": "The International Office will arrange your student ID (legitymacja). This gives you discounts on public transport (50%) and cultural venues.",
+    "category": "arrival",
+    "order": 3
+  },
+  {
+    "id": "register_pesel",
+    "title": "Register for PESEL number",
+    "description": "Visit the Siedlce City Hall (Urząd Miasta) to register your stay and get a PESEL number. Needed for bank accounts and official matters. Bring your passport.",
+    "category": "settling",
+    "order": 1
+  },
+  {
+    "id": "open_bank_account",
+    "title": "Open a Polish bank account",
+    "description": "Go to PKO BP, mBank, or Santander with your passport and PESEL. A Polish account avoids international transfer fees. Many students use Revolut as an alternative.",
+    "category": "settling",
+    "order": 2
+  },
+  {
+    "id": "buy_sim_card",
+    "title": "Buy a Polish SIM card",
+    "description": "Get a prepaid SIM from Orange, Play, Plus, or T-Mobile at any kiosk or electronics store. ~25-30 PLN/month for calls + data. Registration requires passport.",
+    "category": "settling",
+    "order": 3
+  },
+  {
+    "id": "transport_card",
+    "title": "Get a public transport card",
+    "description": "Buy a monthly bus pass at the MZK office or kiosk. With student ID, you get a 50% discount. Monthly pass costs ~25 PLN (student rate).",
+    "category": "settling",
+    "order": 4
+  },
+  {
+    "id": "learn_recycling",
+    "title": "Learn the recycling system",
+    "description": "Poland uses color-coded bins: Yellow (plastic/metal), Blue (paper), Green (glass), Brown (bio), Black (mixed). Dormitories have designated collection points.",
+    "category": "settling",
+    "order": 5
+  },
+  {
+    "id": "emergency_contacts",
+    "title": "Save emergency contacts",
+    "description": "Emergency: 112 | Police: 997 | Ambulance: 999 | Fire: 998 | UwS International Office: +48 25 643 19 21 | Siedlce Hospital: +48 25 640 61 00",
+    "category": "settling",
+    "order": 6
+  },
+  {
+    "id": "learning_agreement",
+    "title": "Finalize your Learning Agreement",
+    "description": "Meet your academic coordinator at UwS to confirm or modify your course selection. Sign the Learning Agreement and send a copy to your home university.",
+    "category": "ongoing",
+    "order": 1
+  },
+  {
+    "id": "attend_orientation",
+    "title": "Attend orientation events",
+    "description": "Join the Erasmus orientation organized by the International Office. Great way to meet other exchange students and learn about the city.",
+    "category": "ongoing",
+    "order": 2
+  },
+  {
+    "id": "explore_warsaw",
+    "title": "Plan a Warsaw day trip",
+    "description": "Warsaw is only 1.5 hours by train. Visit the Old Town, Lazienki Park, and POLIN Museum. Weekend return tickets are cheaper.",
+    "category": "ongoing",
+    "order": 3
+  }
+]

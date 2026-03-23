@@ -1,0 +1,223 @@
+[
+  {
+    "id": "uws_main",
+    "name": "UwS Main Building (Rektorat)",
+    "category": "university",
+    "latitude": 52.1697,
+    "longitude": 22.2802,
+    "address": "ul. Konarskiego 2, 08-110 Siedlce",
+    "phone": "+48 25 643 10 00",
+    "website": "https://www.uws.edu.pl",
+    "description": "Main administrative building and rectorate of the University in Siedlce.",
+    "openingHours": "Mon-Fri 08:00-16:00"
+  },
+  {
+    "id": "uws_faculty_sciences",
+    "name": "Faculty of Exact and Natural Sciences",
+    "category": "university",
+    "latitude": 52.1685,
+    "longitude": 22.2788,
+    "address": "ul. 3 Maja 54, 08-110 Siedlce",
+    "phone": "+48 25 643 10 60",
+    "website": "https://www.uws.edu.pl",
+    "description": "Faculty building for computer science, mathematics, and natural sciences.",
+    "openingHours": "Mon-Fri 07:00-21:00"
+  },
+  {
+    "id": "uws_library",
+    "name": "UwS Main Library",
+    "category": "university",
+    "latitude": 52.1690,
+    "longitude": 22.2795,
+    "address": "ul. Konarskiego 2, 08-110 Siedlce",
+    "phone": "+48 25 643 12 30",
+    "website": "https://bg.uws.edu.pl",
+    "description": "University library with study rooms, computer stations, and book lending.",
+    "openingHours": "Mon-Fri 08:00-19:00, Sat 09:00-14:00"
+  },
+  {
+    "id": "uws_international_office",
+    "name": "International Relations Office",
+    "category": "university",
+    "latitude": 52.1695,
+    "longitude": 22.2800,
+    "address": "ul. Konarskiego 2, 08-110 Siedlce",
+    "phone": "+48 25 643 19 21",
+    "website": "https://www.uws.edu.pl/en/international",
+    "description": "Erasmus coordination office. First stop for all exchange students on arrival.",
+    "openingHours": "Mon-Fri 09:00-15:00"
+  },
+  {
+    "id": "dormitory_ds5",
+    "name": "DS5 - Dom Studenta nr 5 (Erasmus Dormitory)",
+    "category": "dormitory",
+    "latitude": 52.1678,
+    "longitude": 22.2820,
+    "address": "ul. Żytnia 17/19, 08-110 Siedlce",
+    "phone": "+48 25 643 18 00",
+    "description": "Dom Studenta nr 5 (Student House 5). This is the designated dormitory for all Erasmus and exchange students at UwS. When you first arrive in Siedlce, come directly here to check in at the reception desk with your passport and acceptance letter. Reception is open 24/7.",
+    "openingHours": "Reception 24/7"
+  },
+  {
+    "id": "siedlce_train_station",
+    "name": "Siedlce Railway Station (PKP)",
+    "category": "transport",
+    "latitude": 52.1680,
+    "longitude": 22.2655,
+    "address": "ul. Dworcowa 4, 08-110 Siedlce",
+    "description": "Main train station. Direct trains to Warsaw (1.5h), Lublin, and Terespol (Belarus border).",
+    "openingHours": "Ticket office 06:00-22:00"
+  },
+  {
+    "id": "bus_station",
+    "name": "Siedlce Bus Station (PKS)",
+    "category": "transport",
+    "latitude": 52.1675,
+    "longitude": 22.2660,
+    "address": "ul. Skladowa 1, 08-110 Siedlce",
+    "description": "Regional and long-distance bus station. FlixBus stop for intercity travel.",
+    "openingHours": "05:00-21:00"
+  },
+  {
+    "id": "galeria_siedlce",
+    "name": "Galeria Siedlce (Shopping Mall)",
+    "category": "grocery",
+    "latitude": 52.1650,
+    "longitude": 22.2730,
+    "address": "ul. Piłsudskiego 74, 08-110 Siedlce",
+    "description": "Largest shopping mall in Siedlce. Includes supermarket, clothing stores, food court, and cinema.",
+    "openingHours": "Mon-Sat 10:00-21:00, Sun 10:00-20:00"
+  },
+  {
+    "id": "biedronka_centrum",
+    "name": "Biedronka (City Center)",
+    "category": "grocery",
+    "latitude": 52.1700,
+    "longitude": 22.2755,
+    "address": "ul. Piłsudskiego 20, 08-110 Siedlce",
+    "description": "Budget-friendly supermarket. Cheapest option for daily groceries.",
+    "openingHours": "Mon-Sat 06:00-23:00, Sun 09:00-20:00"
+  },
+  {
+    "id": "lidl_siedlce",
+    "name": "Lidl",
+    "category": "grocery",
+    "latitude": 52.1640,
+    "longitude": 22.2680,
+    "address": "ul. Starowiejska 2, 08-110 Siedlce",
+    "description": "German discount supermarket chain. Good quality products at low prices.",
+    "openingHours": "Mon-Sat 06:00-22:00, Sun 09:00-20:00"
+  },
+  {
+    "id": "hospital_siedlce",
+    "name": "Siedlce City Hospital",
+    "category": "health",
+    "latitude": 52.1720,
+    "longitude": 22.2850,
+    "address": "ul. Starowiejska 15, 08-110 Siedlce",
+    "phone": "+48 25 640 61 00",
+    "description": "Main public hospital with emergency department (SOR). Bring your EHIC card.",
+    "openingHours": "Emergency 24/7"
+  },
+  {
+    "id": "pharmacy_centrum",
+    "name": "Apteka (Pharmacy - City Center)",
+    "category": "health",
+    "latitude": 52.1698,
+    "longitude": 22.2760,
+    "address": "ul. 3 Maja 15, 08-110 Siedlce",
+    "description": "Central pharmacy. Basic medicines available without prescription.",
+    "openingHours": "Mon-Fri 08:00-20:00, Sat 08:00-14:00"
+  },
+  {
+    "id": "atm_pkobp",
+    "name": "PKO BP ATM",
+    "category": "finance",
+    "latitude": 52.1702,
+    "longitude": 22.2770,
+    "address": "ul. Wojskowa 24, 08-110 Siedlce",
+    "description": "PKO Bank Polski ATM. One of the largest Polish banks, low withdrawal fees.",
+    "openingHours": "24/7"
+  },
+  {
+    "id": "kantor_centrum",
+    "name": "Kantor (Currency Exchange)",
+    "category": "finance",
+    "latitude": 52.1705,
+    "longitude": 22.2750,
+    "address": "ul. 3 Maja 2, 08-110 Siedlce",
+    "description": "Currency exchange office. Better rates than airport or bank exchanges.",
+    "openingHours": "Mon-Fri 09:00-18:00, Sat 09:00-14:00"
+  },
+  {
+    "id": "park_aleksandria",
+    "name": "Park Aleksandria",
+    "category": "recreation",
+    "latitude": 52.1730,
+    "longitude": 22.2700,
+    "address": "ul. Brzeska, 08-110 Siedlce",
+    "description": "Historic park and green area in the city center. Popular spot for walking and relaxation.",
+    "openingHours": "Open 24/7"
+  },
+  {
+    "id": "kebab_aladin",
+    "name": "Kebab Aladin",
+    "category": "food",
+    "latitude": 52.1695,
+    "longitude": 22.2745,
+    "address": "ul. 3 Maja 10, 08-110 Siedlce",
+    "description": "Popular kebab place among students. Affordable and filling meals.",
+    "openingHours": "Mon-Sun 10:00-23:00"
+  },
+  {
+    "id": "pizzeria_stopiena",
+    "name": "Pizzeria Da Grasso",
+    "category": "food",
+    "latitude": 52.1688,
+    "longitude": 22.2735,
+    "address": "ul. Piłsudskiego 12, 08-110 Siedlce",
+    "description": "Popular pizza chain. Delivery available via Pyszne.pl or Glovo.",
+    "openingHours": "Mon-Sun 11:00-22:00"
+  },
+  {
+    "id": "post_office",
+    "name": "Poczta Polska (Post Office)",
+    "category": "finance",
+    "latitude": 52.1710,
+    "longitude": 22.2765,
+    "address": "ul. Piłsudskiego 1, 08-110 Siedlce",
+    "phone": "+48 25 632 20 00",
+    "description": "Main post office. Parcel pickup, letter sending, and bill payments.",
+    "openingHours": "Mon-Fri 08:00-20:00, Sat 09:00-13:00"
+  },
+  {
+    "id": "biedronka_zytnia",
+    "name": "Biedronka (Żytnia)",
+    "category": "grocery",
+    "latitude": 52.1672,
+    "longitude": 22.2835,
+    "address": "ul. Żytnia, 08-110 Siedlce",
+    "description": "Closest Biedronka to DS5 (Erasmus dormitory). Budget-friendly with a wide product range -- best price-to-variety ratio near campus.",
+    "openingHours": "Mon-Sat 06:00-23:00, Sun 09:00-20:00"
+  },
+  {
+    "id": "topaz_zytnia",
+    "name": "Topaz (Żytnia)",
+    "category": "grocery",
+    "latitude": 52.1676,
+    "longitude": 22.2842,
+    "address": "ul. Żytnia, 08-110 Siedlce",
+    "description": "Walking distance from DS5 (Erasmus dormitory) -- the nearest supermarket. Slightly pricier than Biedronka but convenient for quick daily shopping.",
+    "openingHours": "Mon-Sat 06:00-22:00, Sun 09:00-20:00"
+  },
+  {
+    "id": "zabka_cs_faculty",
+    "name": "Żabka (CS Faculty)",
+    "category": "grocery",
+    "latitude": 52.1683,
+    "longitude": 22.2791,
+    "address": "ul. 3 Maja, 08-110 Siedlce",
+    "description": "Convenience store right next to the Computer Science faculty. Quick snacks, drinks, and essentials between classes.",
+    "openingHours": "Mon-Sun 06:00-23:00"
+  }
+]

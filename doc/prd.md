@@ -126,8 +126,8 @@ The instructor raised an important point: if this app is intended to be used lon
 | Phase | Description | Status |
 |---|---|---|
 | Phase 1 | Project setup, PRD, tech stack documentation | Complete |
-| Phase 2 | POI data collection, JSON schema design | In Progress |
-| Phase 3 | Android app UI -- map screen, checklist screen | Planned |
+| Phase 2 | POI data collection, JSON schema design, Android skeleton | Complete |
+| Phase 3 | Android app UI -- map screen, checklist screen | In Progress |
 | Phase 4 | Map integration (Google Maps SDK), POI rendering | Planned |
 | Phase 5 | Testing, content review, and delivery | Planned |
 
