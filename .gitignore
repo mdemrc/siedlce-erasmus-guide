@@ -22,8 +22,8 @@ android/local.properties
 
 # Java / Maven (removed from stack, kept for safety)
 *.class
-*.jar
 *.log
+*.hprof
 
 # IDE
 .idea/

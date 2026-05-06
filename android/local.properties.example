@@ -1,2 +1,9 @@
-gradle.properties dosyasi:
+# Copy this file to `local.properties` (same directory) and fill in the value.
+# `local.properties` is git-ignored and must NOT be committed.
+#
+# Required for the Google Maps SDK. Get a key from:
+#   https://console.cloud.google.com/google/maps-apis
 MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY_HERE
+
+# Android SDK location (set automatically by Android Studio).
+# sdk.dir=C:\\Users\\<you>\\AppData\\Local\\Android\\Sdk

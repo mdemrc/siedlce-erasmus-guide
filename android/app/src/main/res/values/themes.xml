@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. Compose drives the actual theming at runtime;
+         this XML theme only needs to provide a Material 3 base for the
+         AndroidManifest reference and the splash window. -->
+    <style name="Theme.SiedlceErasmusGuide" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

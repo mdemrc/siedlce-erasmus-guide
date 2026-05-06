@@ -1,13 +1,9 @@
 # Developer Documentation
 
-This directory contains internal developer documentation for the Siedlce Erasmus Guide project.
+Internal documentation for the Siedlce Erasmus Guide Android app.
 
 ## Contents
 
-- [Data Schema](data_schema.md) -- JSON schema for POIs and checklist data
+- [Architecture](architecture.md) -- modules, layers, and how the pieces fit together
+- [Data Schema](data_schema.md) -- JSON schema for `pois.json` and `checklist.json`
 
-Documentation will be added as modules are implemented.
-
-## Data Format
-
-POI and checklist JSON schema documentation is in [data_schema.md](data_schema.md).

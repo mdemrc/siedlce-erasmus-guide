@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -5,6 +7,12 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
     kotlin("kapt")
 }
+
+// Read MAPS_API_KEY from local.properties (kept out of version control).
+val mapsApiKey: String = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
+}.getProperty("MAPS_API_KEY", "")
 
 android {
     namespace = "com.siedlce.erasmusguide"
@@ -19,6 +27,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
+
+        manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
     }
 
     buildTypes {
@@ -57,7 +67,12 @@ dependencies {
     // Core
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // Compose
     implementation(platform("androidx.compose:compose-bom:2024.01.00"))
@@ -66,6 +81,9 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
+
+    // Material Components (provides Theme.Material3.* XML styles)
+    implementation("com.google.android.material:material:1.11.0")
 
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.6")
@@ -78,6 +96,9 @@ dependencies {
     // Google Maps
     implementation("com.google.maps.android:maps-compose:4.3.0")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
+
+    // Runtime permissions for Compose
+    implementation("com.google.accompanist:accompanist-permissions:0.32.0")
 
     // JSON
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
@@ -92,6 +113,9 @@ dependencies {
 
     // Testing
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("org.mockito:mockito-core:5.7.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.01.00"))

@@ -13,5 +13,6 @@ data class Poi(
     val phone: String? = null,
     val website: String? = null,
     val description: String,
-    val openingHours: String? = null
+    val openingHours: String? = null,
+    val imageUrl: String? = null
 )

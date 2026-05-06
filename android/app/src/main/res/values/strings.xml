@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">Siedlce Erasmus Guide</string>
+
+    <!-- Map screen -->
+    <string name="map_title">Siedlce Erasmus Guide</string>
+    <string name="map_action_open_checklist">Open checklist</string>
+    <string name="filter_all">All</string>
+
+    <!-- Checklist screen -->
+    <string name="checklist_title">Erasmus Checklist</string>
+    <string name="checklist_back">Back</string>
+    <string name="checklist_category_before_arrival">Before Arrival</string>
+    <string name="checklist_category_arrival">First Days</string>
+    <string name="checklist_category_settling">Settling In</string>
+    <string name="checklist_category_ongoing">Ongoing</string>
+
+    <!-- POI categories -->
+    <string name="poi_category_university">University</string>
+    <string name="poi_category_dormitory">Dormitory</string>
+    <string name="poi_category_food">Food</string>
+    <string name="poi_category_grocery">Grocery</string>
+    <string name="poi_category_health">Health</string>
+    <string name="poi_category_transport">Transport</string>
+    <string name="poi_category_finance">Finance</string>
+    <string name="poi_category_recreation">Recreation</string>
+
+    <!-- POI detail sheet -->
+    <string name="poi_detail_address_cd">Address</string>
+    <string name="poi_detail_phone_cd">Phone</string>
+    <string name="poi_detail_website_cd">Website</string>
+    <string name="poi_detail_hours_cd">Opening hours</string>
+    <string name="poi_detail_category_cd">Category</string>
 </resources>

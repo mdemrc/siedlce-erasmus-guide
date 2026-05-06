@@ -11,16 +11,20 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.siedlce.erasmusguide.R
 
-private val categoryLabels = mapOf(
-    "before_arrival" to "Before Arrival",
-    "arrival" to "First Days",
-    "settling" to "Settling In",
-    "ongoing" to "Ongoing"
-)
+@Composable
+private fun checklistCategoryLabel(category: String): String = when (category) {
+    "before_arrival" -> stringResource(R.string.checklist_category_before_arrival)
+    "arrival" -> stringResource(R.string.checklist_category_arrival)
+    "settling" -> stringResource(R.string.checklist_category_settling)
+    "ongoing" -> stringResource(R.string.checklist_category_ongoing)
+    else -> category.replaceFirstChar { it.uppercase() }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,15 +33,18 @@ fun ChecklistScreen(
     viewModel: ChecklistViewModel = hiltViewModel()
 ) {
     val checkedIds by viewModel.checkedIds.collectAsState()
-    val itemsByCategory = viewModel.getItemsByCategory()
+    val itemsByCategory by viewModel.itemsByCategory.collectAsState()
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Erasmus Checklist") },
+                title = { Text(stringResource(R.string.checklist_title)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.checklist_back)
+                        )
                     }
                 }
             )
@@ -53,7 +60,7 @@ fun ChecklistScreen(
             itemsByCategory.forEach { (category, items) ->
                 item {
                     Text(
-                        text = categoryLabels[category] ?: category,
+                        text = checklistCategoryLabel(category),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(top = 12.dp, bottom = 4.dp)

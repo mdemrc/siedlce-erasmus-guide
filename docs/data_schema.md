@@ -33,6 +33,7 @@ Each Point of Interest follows this structure:
 | `website` | string | no | URL |
 | `description` | string | yes | Short English description |
 | `openingHours` | string | no | Human-readable hours |
+| `imageUrl` | string | no | URL to a representative image (loaded with Coil) |
 
 ### Categories
 

@@ -1,37 +1,56 @@
 package com.siedlce.erasmusguide.ui.checklist
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.siedlce.erasmusguide.data.model.ChecklistItem
-import com.siedlce.erasmusguide.data.repository.DataRepository
+import com.siedlce.erasmusguide.data.repository.ChecklistRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ChecklistViewModel @Inject constructor(
-    private val repository: DataRepository
+    private val repository: ChecklistRepository
 ) : ViewModel() {
 
     private val _items = MutableStateFlow<List<ChecklistItem>>(emptyList())
-    val items: StateFlow<List<ChecklistItem>> = _items
+    val items: StateFlow<List<ChecklistItem>> = _items.asStateFlow()
 
-    private val _checkedIds = MutableStateFlow<Set<String>>(emptySet())
-    val checkedIds: StateFlow<Set<String>> = _checkedIds
+    /** Items grouped by their `category`, sorted by `order` within each group. */
+    val itemsByCategory: StateFlow<Map<String, List<ChecklistItem>>> = _items
+        .map { list -> list.groupBy { it.category } }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS),
+            initialValue = emptyMap()
+        )
+
+    /** Persisted checked-state (survives process death). */
+    val checkedIds: StateFlow<Set<String>> = repository.observeCheckedIds()
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS),
+            initialValue = emptySet()
+        )
 
     init {
-        _items.value = repository.loadChecklist().sortedWith(
-            compareBy({ it.category }, { it.order })
-        )
+        viewModelScope.launch {
+            _items.value = repository.loadItems()
+                .sortedWith(compareBy({ it.category }, { it.order }))
+        }
     }
 
     fun toggleItem(id: String) {
-        val current = _checkedIds.value.toMutableSet()
-        if (current.contains(id)) current.remove(id) else current.add(id)
-        _checkedIds.value = current
+        viewModelScope.launch { repository.toggle(id) }
     }
 
-    fun getItemsByCategory(): Map<String, List<ChecklistItem>> {
-        return _items.value.groupBy { it.category }
+    private companion object {
+        const val STOP_TIMEOUT_MS = 5_000L
     }
 }
